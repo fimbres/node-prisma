@@ -17,14 +17,13 @@ async function main () {
     //         }
     //     }
     // });
-    const users = await prisma.user.findMany({
-        include: {
-            userPreference: true
-        },
+    const users = await prisma.user.update({
         where: {
-            name: 'Isaac Fimbres',
+            email: 'isaac@gmail.com'
         },
-        take: 2,
+        data: {
+            age: 22
+        }
     });
 
     console.log(users);
